@@ -4,9 +4,11 @@
  */
 import { io } from 'socket.io-client';
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || 'http://localhost:5000';
+// Production Render server fallback
+const SERVER_URL =
+  import.meta.env.VITE_SERVER_URL || 'https://tic-tac-toe-z1rf.onrender.com';
 
-let socket = null;
+console.log('[socket] connecting to:', SERVER_URL);
 
 /**
  * Get (or create) the singleton socket connection.
