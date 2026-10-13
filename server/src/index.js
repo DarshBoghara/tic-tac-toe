@@ -53,7 +53,14 @@ const io = new Server(httpServer, {
 
 registerSocketHandlers(io);
 
-// ─── HTTP Routes ─────────────────────────────────────────────────────────────
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    name: 'Tic-Tac-Toe Battle Backend',
+    status: 'running',
+    health: '/health',
+  });
+});
 
 // Health check (used by Render and monitoring tools)
 app.get('/health', (req, res) => {
