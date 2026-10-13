@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 
 // Production Render server fallback
 const SERVER_URL =
-  import.meta.env.VITE_SERVER_URL || 'https://tic-tac-toe-z1rf.onrender.com';
+  import.meta.env.VITE_SERVER_URL || 'https://tic-tac-toe-1-4vmm.onrender.com';
 
 console.log('[socket] connecting to:', SERVER_URL);
 

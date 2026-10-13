@@ -38,7 +38,8 @@ export default function RoomPage() {
       try {
         await navigator.share({ title: 'Tic-Tac-Toe Battle', text, url });
       } catch {
-        await copyText(text);
+        await navigator.clipboard.writeText(text);
+        toast.success('Invite copied to clipboard!');
       }
     } else {
       try {

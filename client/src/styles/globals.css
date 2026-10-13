@@ -24,10 +24,10 @@
     width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: theme(colors.slate.900);
+    background: #0f172a;
   }
   ::-webkit-scrollbar-thumb {
-    background: theme(colors.slate.600);
+    background: #475569;
     border-radius: 3px;
   }
 }

@@ -3,7 +3,11 @@
  * Sounds are disabled by default until user interaction.
  */
 
-const AudioContext = window.AudioContext || window.webkitAudioContext;
+function getAudioContextClass() {
+  if (typeof window === 'undefined') return null;
+  return window.AudioContext || window.webkitAudioContext || null;
+}
+
 let audioCtx = null;
 let soundEnabled = false;
 
@@ -15,7 +19,8 @@ export function setSoundEnabled(val) {
   soundEnabled = val;
   if (val && !audioCtx) {
     try {
-      audioCtx = new AudioContext();
+      const AC = getAudioContextClass();
+      if (AC) audioCtx = new AC();
     } catch (e) {
       console.warn('Web Audio API not supported.');
     }
@@ -25,12 +30,13 @@ export function setSoundEnabled(val) {
 function getCtx() {
   if (!audioCtx) {
     try {
-      audioCtx = new AudioContext();
+      const AC = getAudioContextClass();
+      if (AC) audioCtx = new AC();
     } catch (e) {
       return null;
     }
   }
-  if (audioCtx.state === 'suspended') {
+  if (audioCtx && audioCtx.state === 'suspended') {
     audioCtx.resume().catch(() => {});
   }
   return audioCtx;
