@@ -1,0 +1,7 @@
+# Tic-Tac-Toe Battle — Root .gitignore
+node_modules/
+.env
+dist/
+.DS_Store
+*.log
+.vercel/

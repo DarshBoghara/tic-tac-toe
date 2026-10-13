@@ -1,0 +1,11 @@
+{
+  "name": "tic-tac-toe-battle",
+  "version": "1.0.0",
+  "description": "Tic-Tac-Toe Battle — Real-time online multiplayer game",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "test:server": "cd server && npm test",
+    "install:all": "cd server && npm install && cd ../client && npm install"
+  }
+}
